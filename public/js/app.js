@@ -41,9 +41,28 @@ app.controller('reverse_ctrl',function($scope,$http){
 				$scope.reverse += $scope.word.charAt(i);
 			}
 		}
-	}
-
-
-
-
+	};
 });
+
+app.controller('needle_ctrl',function($scope,$http){
+	$scope.get_haystack = function(){
+		$http.post('http://challenge.code2040.org/api/haystack',{
+			"token":"QSTW8u52WU"
+		}).success(function(response){
+			var result = response;
+			$scope.haystack = result.result.haystack;
+			$scope.needle = result.result.needle;
+		});
+	};
+
+	$scope.find_needle = function(){
+		var len = $scope.haystack.length;
+		if(len == 0 || len == 1){
+			$scope.position = 0;
+		}else{
+			$scope.position = $scope.haystack.indexOf($scope.needle);
+		}
+	};
+});
+
+

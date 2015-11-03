@@ -36,8 +36,9 @@
           	<li><a href="#">Stage II</a></li>
           	<li><a href="#">Stage III</a></li>
           	<li><a href="#">Stage IV</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Source</a></li>
+            <li><a href="https://github.com/pascalodek/CODE2040API" target="_blank">Source</a></li>
+            <li><a href="http://challenge.code2040.org/" target="_blank">Prompt</a></li>
+            <li><iframe src="https://ghbtns.com/github-btn.html?user=pascalodek&repo=CODE2040API&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe></li>
           </ul>
         </div><!--/.navbar-collapse -->
       </div>
@@ -85,7 +86,7 @@
     			<button data-ng-click="gen_string()">Generate word</button>
     			<p>Word is <h4 data-ng-bind="word"></h4></p>
     			<p>&nbsp</p>
-    			 <p>&nbsp</p>
+    			<p>&nbsp</p>
     			<p>&nbsp</p>
     			<button data-ng-click="rev_string()">Reverse word</button>
     			<p>Reverse is: <h4 data-ng-bind="reverse"></h4></p>
@@ -97,22 +98,27 @@
 
     	<hr>
 
-    	<div class="row" data-ng-controller="reverse_ctrl">
+    	<div class="row" data-ng-controller="needle_ctrl">
     		<div class="col-md-6">
     			<p>&nbsp</p>
     			<p>&nbsp</p>
     			<p>&nbsp</p>
     			<h4>Stage II: Needle in a haystack </h4>
     			<p>&nbsp</p>
+    			<button data-ng-click="get_haystack()">Get array</button>
+    			<p><span data-ng-bind="haystack"></span></p>
+    			<h4><span data-ng-bind="needle"></span></h4>
     			<p>&nbsp</p>
     			<p>&nbsp</p>
+    			<button data-ng-click="find_needle()">Finc position</button>
+    			<h4>Position is :<span data-ng-bind="position"></span></h4>
     			<p>&nbsp</p>
     		</div>
     	</div>
 
     	<hr>
 
-    	<div class="row" data-ng-controller="reverse_ctrl">
+    	<div class="row" data-ng-controller="needle_ctrl">
     		<div class="col-md-6">
     			<p>&nbsp</p>
     			<p>&nbsp</p>
