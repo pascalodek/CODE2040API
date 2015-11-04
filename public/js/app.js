@@ -65,4 +65,52 @@ app.controller('needle_ctrl',function($scope,$http){
 	};
 });
 
+app.controller('prefix_ctrl',function($scope,$http){
+	$scope.get_array = function(){
+		$http.post('http://challenge.code2040.org/api/prefix',{
+			"token":"QSTW8u52WU"
+		}).success(function(response){
+			var result = response;
+			$scope.prefixo = result.result.prefix;
+			$scope.list = result.result.array;
+		});
+	};
+
+	$scope.make_array = function(){
+		var list_len = $scope.list.length;
+		var prefix_len = $scope.prefixo.length;
+		var list2 = [];
+		for(var i=0; i<list_len;i++){
+			if($scope.list[i].substr(0,prefix_len) != $scope.prefixo){
+				list2.push($scope.list[i]);
+			}
+		}
+		$scope.result_array = list2;
+	};
+
+	$scope.send_result = function(){
+		$http.post('http://challenge.code2040.org/api/validateprefix',{
+			"token":"QSTW8u52WU",
+			"array":$scope.result_array
+		}).success(function(response){
+			$scope.answer = "response.result";
+		});
+	};
+});
+
+app.controller('date_ctrl',function($scope, $http){
+
+	$scope.get_date = function(){
+		$http.post('http://challenge.code2040.org/api/time',{
+			"token":"QSTW8u52WU"
+		}).success(function(response){
+			var result = response;
+			$scope.datum = result.result.datestamp;
+			$scope.interval = result.result.interval;
+		});
+	};
+
+
+});
+
 

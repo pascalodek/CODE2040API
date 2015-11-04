@@ -118,28 +118,36 @@
 
     	<hr>
 
-    	<div class="row" data-ng-controller="needle_ctrl">
+    	<div class="row" data-ng-controller="prefix_ctrl">
     		<div class="col-md-6">
     			<p>&nbsp</p>
     			<p>&nbsp</p>
     			<p>&nbsp</p>
     			<h4>Stage III: Prefix</h4>
     			<p>&nbsp</p>
+    			<button data-ng-click="get_array()">Get array</button>
     			<p>&nbsp</p>
+    			<p>Prifix is <span data-ng-bind="prefixo"></span> .Array is: <span data-ng-bind="list"></span> </p>
     			<p>&nbsp</p>
+    			<button data-ng-click="make_array()">Make array</button>
+    			<p>Result is: <span data-ng-bind="result_array"> </span> </p>
     			<p>&nbsp</p>
+    			<button data-ng-click="send_results()">Send Array</button>
+    			<p data-ng-bind="answer"></p>
     		</div>
     	</div>
 
     	<hr>
 
-    	<div class="row" data-ng-controller="reverse_ctrl">
+    	<div class="row" data-ng-controller="date_ctrl">
     		<div class="col-md-6">
     			<p>&nbsp</p>
     			<p>&nbsp</p>
     			<p>&nbsp</p>
     			<h4>Stage IV: The dating game</h4>
     			<p>&nbsp</p>
+    			<button data-ng-click="get_date()">Get date</button>
+    			<p>Date given is <span data-ng-bind="datum"> </span> . And the interval is <span data-ng-bind="interval"></span> .</p>
     			<p>&nbsp</p>
     			<p>&nbsp</p>
     			<p>&nbsp</p>
