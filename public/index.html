@@ -149,8 +149,12 @@
     			<button data-ng-click="get_date()">Get date</button>
     			<p>Date given is <span data-ng-bind="datum"> </span> . And the interval is <span data-ng-bind="interval"></span> .</p>
     			<p>&nbsp</p>
+                <button data-ng-click="add_interval()">Add interval</button>
+                <p> The result is: <span data-ng-bind = "new_iso_date"></span></p>
     			<p>&nbsp</p>
+                <button data-ng-click = "post_result()">Post date</button>
     			<p>&nbsp</p>
+                <p data-ng-bind="feedback"></p>
     		</div>
     	</div>
 

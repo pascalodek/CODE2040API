@@ -110,6 +110,25 @@ app.controller('date_ctrl',function($scope, $http){
 		});
 	};
 
+	$scope.add_interval = function(){
+		var dt = $scope.datum.split(/[: T-]/).map(parseFloat);
+		var datu = new Date (dt[0], dt[1] - 1, dt[2], dt[3] || 0, dt[4] || 0, dt[5] || 0, 0);
+		var datum_secs = (datu.getTime())/100;
+		var new_time = datum_secs + $scope.interval;
+		var new_date = new Date (new_time * 100);
+		var new_date_iso = new_date.toISOString();
+		$scope.new_iso_date = new_date_iso;
+	};
+
+	$scope.post_result = function(){
+		$http.post('http://challenge.code2040.org/api/validatetime',{
+			"token":"QSTW8u52WU",
+			"datestamp":$scope.new_iso_date
+		}).success(function(response){
+			var result = response;
+			$scope.feedback = result.result;
+		});
+	};
 
 });
 
