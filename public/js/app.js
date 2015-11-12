@@ -1,8 +1,7 @@
-var app = angular.module('code_api',[]);
+var app = angular.module('code_api',[]); //initialize the angular app module
 
-//QSTW8u52WU-token 
-//3L91MgSBNS-
-
+//registration controller to get a token
+//makes use of $http POST to the endpoint given
 app.controller('reg_ctrl',function($scope,$http){
 	$scope.register = function(){
 	    var reg_token = {
@@ -20,8 +19,10 @@ app.controller('reg_ctrl',function($scope,$http){
 
 });
 
+//controller for stageI. 
+//function gen_string generates a string from the Code2040 API
+//function rev_string reverses the given string
 app.controller('reverse_ctrl',function($scope,$http){
-
 	$scope.gen_string = function(){
 		$http.post('http://challenge.code2040.org/api/getstring',{
 			"token":"QSTW8u52WU"
@@ -44,6 +45,9 @@ app.controller('reverse_ctrl',function($scope,$http){
 	};
 });
 
+// controller for stage II .
+// get_haystack gets an array from the API with $http
+// find_needle gets the position of the 'needle' in the array
 app.controller('needle_ctrl',function($scope,$http){
 	$scope.get_haystack = function(){
 		$http.post('http://challenge.code2040.org/api/haystack',{
@@ -65,6 +69,10 @@ app.controller('needle_ctrl',function($scope,$http){
 	};
 });
 
+// controller for stage initialize
+// get_array gets an array from the API
+// make_array creates an array composed of elements from the first array that don't have a substring that matches prefix
+//send_result posts the array to the given endpoint.
 app.controller('prefix_ctrl',function($scope,$http){
 	$scope.get_array = function(){
 		$http.post('http://challenge.code2040.org/api/prefix',{
@@ -98,6 +106,12 @@ app.controller('prefix_ctrl',function($scope,$http){
 	};
 });
 
+
+//controller for stage IV
+// get_date retrives a date in ISO format from the API
+// add_interval converts the date into seconds, then adds the interval to the the converted time
+// The total seconds is then converted back to ISO format
+// post_result posts the resulting date to the API
 app.controller('date_ctrl',function($scope, $http){
 
 	$scope.get_date = function(){

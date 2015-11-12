@@ -12,6 +12,9 @@ body {
     padding-bottom: 20px;
 }
 .gen-token{
-	/*border-right: px black solid;*/
 	padding-left: 5px;
+}
+.logo{
+	width: 90%;
+	height:auto;
 }

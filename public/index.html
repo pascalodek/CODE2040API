@@ -9,7 +9,6 @@
         <title>2040 api</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- <link rel="stylesheet" href="/scripts/css/bootstrap.min.css"> -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
         <link rel="stylesheet" href="/css/main.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
@@ -32,13 +31,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-          	<li><a href="#">Stage I</a></li>
-          	<li><a href="#">Stage II</a></li>
-          	<li><a href="#">Stage III</a></li>
-          	<li><a href="#">Stage IV</a></li>
             <li><a href="https://github.com/pascalodek/CODE2040API" target="_blank">Source</a></li>
             <li><a href="http://challenge.code2040.org/" target="_blank">Prompt</a></li>
-            <li><iframe src="https://ghbtns.com/github-btn.html?user=pascalodek&repo=CODE2040API&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe></li>
           </ul>
         </div><!--/.navbar-collapse -->
       </div>
@@ -48,6 +42,14 @@
 
 
     	<div class="row" data-ng-controller="reg_ctrl">
+
+            <div class="col-md-6">
+                <p>&nbsp</p>
+                <img class="logo" src="/img/logo.png">
+                <p>&nbsp</p>
+                <h4>Generated token: <span data-ng-bind="token"></span></h4>
+            </div>
+
     		<div class="col-md-6 gen-token">
     		<h4>Please enter email address and github repo url to generate special token: <span data-ng-bind="token"></span></h4>
 	    	<form class="form-horizontal" data-ng-submit="register()">
@@ -71,28 +73,21 @@
 	            </fieldset>
 	        </form>
 	    	</div>
-	    	<div class="col-md-6">
-	    		<h4>Token is <span data-ng-bind="token"></span></h4>
-	    		<p>The most difficult part of this was sending a POST request of a json object in the body of the request. Finally figured it out after some time.</p>
-	    	</div>
+	    	
     	</div>
 
     	<hr>
 
     	<div class="row" data-ng-controller="reverse_ctrl">
     		<div class="col-md-6">
-    			<h4>Stage I: Reverse a string</h4>
-    			<p>&nbsp</p>
-    			<button data-ng-click="gen_string()">Generate word</button>
-    			<p>Word is <h4 data-ng-bind="word"></h4></p>
-    			<p>&nbsp</p>
-    			<p>&nbsp</p>
-    			<p>&nbsp</p>
-    			<button data-ng-click="rev_string()">Reverse word</button>
-    			<p>Reverse is: <h4 data-ng-bind="reverse"></h4></p>
-    			<p>&nbsp</p>
-    			<p>&nbsp</p>
-    			<p>&nbsp</p>
+    			<h4>Stage I: </h4>
+    			<button data-ng-click="gen_string()">Generate string</button>
+    			<h4 data-ng-bind="word"></h4>
+            </div>
+    		<div class="col-md-6">
+                <h4>Reverse a string</h4>
+    			<button data-ng-click="rev_string()">Reverse string</button>
+    			<h4 data-ng-bind="reverse"></h4>
     		</div>
     	</div>
 
@@ -100,19 +95,15 @@
 
     	<div class="row" data-ng-controller="needle_ctrl">
     		<div class="col-md-6">
-    			<p>&nbsp</p>
-    			<p>&nbsp</p>
-    			<p>&nbsp</p>
-    			<h4>Stage II: Needle in a haystack </h4>
-    			<p>&nbsp</p>
+    			<h4>Stage II: </h4>
     			<button data-ng-click="get_haystack()">Get array</button>
-    			<p><span data-ng-bind="haystack"></span></p>
-    			<h4><span data-ng-bind="needle"></span></h4>
-    			<p>&nbsp</p>
-    			<p>&nbsp</p>
-    			<button data-ng-click="find_needle()">Finc position</button>
-    			<h4>Position is :<span data-ng-bind="position"></span></h4>
-    			<p>&nbsp</p>
+    			<p>Array: <span  data-ng-repeat="string in haystack"> <span data-ng-bind="string"></span>, </span></p>
+    			<h4>Needle: <span data-ng-bind="needle"></span></h4>
+    		</div>
+            <div class="col-md-6">
+                <h4>Needle in a haystack</h4>
+    			<button data-ng-click="find_needle()">Find position</button>
+    			<h4>Position (zero indexed) is :<span data-ng-bind="position"></span></h4>
     		</div>
     	</div>
 
@@ -120,40 +111,35 @@
 
     	<div class="row" data-ng-controller="prefix_ctrl">
     		<div class="col-md-6">
-    			<p>&nbsp</p>
-    			<p>&nbsp</p>
-    			<p>&nbsp</p>
-    			<h4>Stage III: Prefix</h4>
-    			<p>&nbsp</p>
+    			<h4>Stage III: </h4>
     			<button data-ng-click="get_array()">Get array</button>
-    			<p>&nbsp</p>
-    			<p>Prifix is <span data-ng-bind="prefixo"></span> .Array is: <span data-ng-bind="list"></span> </p>
-    			<p>&nbsp</p>
-    			<button data-ng-click="make_array()">Make array</button>
-    			<p>Result is: <span data-ng-bind="result_array"> </span> </p>
-    			<p>&nbsp</p>
-    			<button data-ng-click="send_results()">Send Array</button>
-    			<p data-ng-bind="answer"></p>
+                <p>Array: <span data-ng-repeat="item in list"> <span data-ng-bind="item"></span>, </span> </p>
+    			<p>Prefix: <span data-ng-bind="prefixo"></span> </p>
+                
     		</div>
+            <div class="col-md-6">
+                <h4>Items without Prefix</h4>
+    			<button data-ng-click="make_array()">Make array</button>
+    			<p>Result is: <span data-ng-repeat="string in result_array"> <span data-ng-bind="string"> </span>, </span> </p>
+                <button data-ng-click="send_results()">Post Array</button>
+                <p data-ng-bind="answer"></p>
+            </div>
     	</div>
 
     	<hr>
 
     	<div class="row" data-ng-controller="date_ctrl">
     		<div class="col-md-6">
-    			<p>&nbsp</p>
-    			<p>&nbsp</p>
-    			<p>&nbsp</p>
-    			<h4>Stage IV: The dating game</h4>
-    			<p>&nbsp</p>
+    			<h4>Stage IV: </h4>
     			<button data-ng-click="get_date()">Get date</button>
-    			<p>Date given is <span data-ng-bind="datum"> </span> . And the interval is <span data-ng-bind="interval"></span> .</p>
-    			<p>&nbsp</p>
+    			<p>Date given is :<span data-ng-bind="datum"> </span> </p>
+                <p>Interval is: <span data-ng-bind="interval"></span> </p>
+            </div>
+            <div class="col-md-6">
+                <h4>The dating game</h4>
                 <button data-ng-click="add_interval()">Add interval</button>
                 <p> The result is: <span data-ng-bind = "new_iso_date"></span></p>
-    			<p>&nbsp</p>
                 <button data-ng-click = "post_result()">Post date</button>
-    			<p>&nbsp</p>
                 <p data-ng-bind="feedback"></p>
     		</div>
     	</div>
@@ -161,13 +147,12 @@
 		
     	<hr>
 	  <footer>
-        <p>&copy; Pascalo 2015</p>
+        <p>&copy; <a href="http://pascalodek.com">Pascalo 2015</a></p>
       </footer>
     </div> <!-- /container -->   
 
     	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-		<!-- <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>-->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
         <script src="/js/main.js"></script>
     </body>
