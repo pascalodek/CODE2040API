@@ -81,13 +81,14 @@
     	<div class="row" data-ng-controller="reverse_ctrl">
     		<div class="col-md-6">
     			<h4>Stage I: </h4>
-    			<button data-ng-click="gen_string()">Generate string</button>
+    			<button class="btn btn-success" data-ng-click="gen_string()">Generate string</button>
     			<h4 data-ng-bind="word"></h4>
             </div>
     		<div class="col-md-6">
                 <h4>Reverse a string</h4>
-    			<button data-ng-click="rev_string()">Reverse string</button>
+    			<button class="btn btn-info" data-ng-click="rev_string()">Reverse string</button>
     			<h4 data-ng-bind="reverse"></h4>
+                <button class="btn btn-warning" data-ng-click="validate_string()">Post String</button>
     		</div>
     	</div>
 
@@ -96,14 +97,15 @@
     	<div class="row" data-ng-controller="needle_ctrl">
     		<div class="col-md-6">
     			<h4>Stage II: </h4>
-    			<button data-ng-click="get_haystack()">Get array</button>
+    			<button class="btn btn-success" data-ng-click="get_haystack()">Get array</button>
     			<p>Array: <span  data-ng-repeat="string in haystack"> <span data-ng-bind="string"></span>, </span></p>
     			<h4>Needle: <span data-ng-bind="needle"></span></h4>
     		</div>
             <div class="col-md-6">
                 <h4>Needle in a haystack</h4>
-    			<button data-ng-click="find_needle()">Find position</button>
+    			<button class="btn btn-info" data-ng-click="find_needle()">Find position</button>
     			<h4>Position (zero indexed) is :<span data-ng-bind="position"></span></h4>
+                <button class="btn btn-warning" data-ng-click="validate_needle()">Post Position</button>
     		</div>
     	</div>
 
@@ -112,16 +114,16 @@
     	<div class="row" data-ng-controller="prefix_ctrl">
     		<div class="col-md-6">
     			<h4>Stage III: </h4>
-    			<button data-ng-click="get_array()">Get array</button>
+    			<button class="btn btn-success" data-ng-click="get_array()">Get array</button>
                 <p>Array: <span data-ng-repeat="item in list"> <span data-ng-bind="item"></span>, </span> </p>
     			<p>Prefix: <span data-ng-bind="prefixo"></span> </p>
                 
     		</div>
             <div class="col-md-6">
                 <h4>Items without Prefix</h4>
-    			<button data-ng-click="make_array()">Make array</button>
+    			<button class="btn btn-info" data-ng-click="make_array()">Make array</button>
     			<p>Result is: <span data-ng-repeat="string in result_array"> <span data-ng-bind="string"> </span>, </span> </p>
-                <button data-ng-click="send_results()">Post Array</button>
+                <button  class="btn btn-warning" data-ng-click="send_results()">Post Array</button>
                 <p data-ng-bind="answer"></p>
             </div>
     	</div>
@@ -131,15 +133,15 @@
     	<div class="row" data-ng-controller="date_ctrl">
     		<div class="col-md-6">
     			<h4>Stage IV: </h4>
-    			<button data-ng-click="get_date()">Get date</button>
+    			<button class="btn btn-success" data-ng-click="get_date()">Get date</button>
     			<p>Date given is :<span data-ng-bind="datum"> </span> </p>
                 <p>Interval is: <span data-ng-bind="interval"></span> </p>
             </div>
             <div class="col-md-6">
                 <h4>The dating game</h4>
-                <button data-ng-click="add_interval()">Add interval</button>
+                <button class="btn btn-info" data-ng-click="add_interval()">Add interval</button>
                 <p> The result is: <span data-ng-bind = "new_iso_date"></span></p>
-                <button data-ng-click = "post_result()">Post date</button>
+                <button class="btn btn-warning" data-ng-click = "post_result()">Post date</button>
                 <p data-ng-bind="feedback"></p>
     		</div>
     	</div>

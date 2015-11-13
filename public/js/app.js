@@ -43,6 +43,16 @@ app.controller('reverse_ctrl',function($scope,$http){
 			}
 		}
 	};
+
+	$scope.validate_string = function(){
+		console.log("clicked v str");
+		$http.post('http://challenge.code2040.org/api/validatestring',{
+			"token":"QSTW8u52WU",
+			"string":$scope.reverse
+		}).success(function(response){
+			$scope.answer = "response.result";
+		});
+	};
 });
 
 // controller for stage II .
@@ -61,12 +71,24 @@ app.controller('needle_ctrl',function($scope,$http){
 
 	$scope.find_needle = function(){
 		var len = $scope.haystack.length;
-		if(len == 0 || len == 1){
+		if(!len) $scope.position = -1;
+		if(len == 1){
 			$scope.position = 0;
 		}else{
 			$scope.position = $scope.haystack.indexOf($scope.needle);
 		}
 	};
+
+	$scope.validate_needle = function(){
+		console.log("clicked v nidl");
+		$http.post('http://challenge.code2040.org/api/validateneedle',{
+			"token":"QSTW8u52WU",
+			"needle":$scope.position
+		}).success(function(response){
+			$scope.answer = "response.result";
+		});
+	};
+
 });
 
 // controller for stage initialize
